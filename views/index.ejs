@@ -1,0 +1,15 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <% if (books && books.length > 0) { %>
+        <% for (var i = 0; i < books.length; i++) { %>
+        <div class="card">
+            <h2 id="title"><%= books[i].title %></h2>
+            <h3 id="author"><%= books[i].author %></h3>
+            <img class="book-image" src="<%= `https://covers.openlibrary.org/b/isbn/${books[i].isbn}-M.jpg` %>"/>
+        </div>
+        <% } %>
+    <% } %>
+</div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,56 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0px;
+    min-height: 100vh;
+    background-color: rgb(227, 227, 227);
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+/* 
+.form-group {
+    
+} */
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 30px;
+    
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    border: 10px rgb(26, 23, 23) solid;
+    border-radius: 10px;
+    background-color: rgb(44, 38, 38);
+    box-shadow: 10px;
+}
+
+.book-image {
+    height: auto;
+    width: auto;
+}
+
+footer {
+    margin-top: 50px;
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}

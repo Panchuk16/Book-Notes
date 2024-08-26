@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/new" method="POST">
+    <div class="center">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" autofocus>
+        </div>
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" class="form-control" name="author" autofocus>
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <input type="text" class="form-control" name="notes" autofocus>
+        </div>
+            <button type="submit" class="btn btn-dark">Create</button>
+    </div>
+</form>
+
+
+
+<%- include("partials/footer.ejs") %>
