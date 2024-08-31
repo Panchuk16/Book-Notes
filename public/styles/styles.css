@@ -15,18 +15,15 @@ body {
     align-items: center;
 
 }
-/* 
-.form-group {
-    
-} */
 
-.container {
+.home {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 30px;
-    
+    justify-items: center;
+
 }
 
 .card {
@@ -36,15 +33,100 @@ body {
     align-items: center;
     width: 300px;
     height: 400px;
-    border: 10px rgb(26, 23, 23) solid;
+    border: 10px rgb(247, 239, 239) solid;
     border-radius: 10px;
-    background-color: rgb(44, 38, 38);
+    background-color: rgb(244, 229, 229);
     box-shadow: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#title {
+    font-size: 1.5rem;
+    color:black;
+}
+
+#author {
+    font-size: 1rem;
+    color: rgb(35, 35, 35);
 }
 
 .book-image {
-    height: auto;
+    margin: 20px auto; /* Center horizontally and add vertical margin */
+    height: 50% !important; /* Restrict the height to 50% of its container */
+    width: 50% !important; /* Scale the width within the container */
+}
+
+.card .book-image {
+    margin: 20px auto; /* Center horizontally and add vertical margin */
+    height: 50%; /* Restrict the height to 50% of its container */
+    width: 50%; /* Scale the width within the container */
+}
+
+.notes-page {
+    flex: 1; /* This makes the notes page take up all available space */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensures footer stays at the bottom */
+    flex-grow: 1;
+}
+
+.container-info {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-book-image {
+    width: 20%;
+}
+
+.container-title-and-author {
+    text-align: center;
+    width: 50%;
+}
+
+.container-author-image {
+    width: 20%;
+}
+
+.container-notes {
+    text-align: center;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.notes-title {
+    font-size: 2rem;
+}
+
+.notes-author {
+    font-size: 1rem;
+}
+
+.notes-book-image {
+    height: 50%;
     width: auto;
+}
+
+.notes-book-svg {
+    display: block;
+}
+
+.notes-author-image {
+    height: 50%;
+    width: auto;
+}
+
+.notes {
+    font-size: 1.25rem;
 }
 
 footer {
@@ -53,4 +135,5 @@ footer {
     text-align: center;
     background-color: black;
     color: white;
+    flex-shrink: 0; /* Prevents the footer from shrinking */
 }

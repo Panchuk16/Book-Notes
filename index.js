@@ -21,15 +21,14 @@ db.connect();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let notes = [];
 let books = [];
+let notes = "";
 
-async function getNotes() {
-    notes = [];
-    const result = await db.query("SELECT * FROM note");
-    result.rows.forEach(note => {
-        notes.push(result.rows);
-    });
+async function getNotes(id) {
+    notes = "";
+    const result = await db.query("SELECT note FROM book_notes WHERE note_id = $1",
+        [id]);
+    notes = result.rows[0].note;
     return notes;
 };
 
@@ -42,7 +41,7 @@ async function getBooks() {
 
 app.get("/", async (req, res) => {
     const books = await getBooks();
-    console.log(books);
+    // console.log(books);
     res.render("index.ejs", {
         books: books,
     });
@@ -69,7 +68,24 @@ app.post("/new", async (req, res) => {
         [title, author, isbn, olid]
     );
     res.redirect("/");
-    };
+    };1
+});
+
+app.get("/book/:id", async (req, res) => {
+    const books = await getBooks();
+    const id = req.params.id;
+    console.log(id);
+    const notes = await getNotes(id);
+    console.log(notes)
+    res.render("book.ejs", {
+        books: books,
+        notes: notes,
+        id: id,
+    });
+});
+
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
 });
 
 app.listen(port, () => {
