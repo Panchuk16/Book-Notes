@@ -1,3 +1,41 @@
 <%- include("partials/header.ejs") %>
 
+<form action="/edit/<%= id %>" method="POST">
+    <!-- Main div -->
+    <div class="notes-page">
+        <div class="container-info">
+            <!-- Book Cover image -->
+            <div class="container-book-image">
+                <% if (book && book.isbn !== null) { %>
+                    <img class="notes-book-image"
+                         src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" 
+                         onerror="this.style.display='none'; document.getElementById('fallbackSvg-<%= id %>').style.display='inline';"
+                         onload="if(this.naturalWidth === 1) { this.style.display='none'; document.getElementById('fallbackSvg-<%= id %>').style.display='inline'; }" />
+                    <svg id="fallbackSvg-<%= id %>" class="notes-book-svg"
+                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" style="display: none;">
+                        <!-- SVG path here -->
+                    </svg>
+                <% } %>
+            </div>
+
+            <!-- Title and Author -->
+            <div class="container-title-and-author">
+                <h2 class="notes-title"><%= book.title %></h2>
+                <h3 class="notes-author"><%= book.author %></h3>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="container-notes">
+            <textarea style="height: 300px;" class="notes-textarea" name="notes" autofocus>
+                <%= notes %>
+            </textarea>
+        </div>
+
+        <div class="container-submit">
+            <button type="submit" style="width: 100px;" class="submit-button edit-button notes-button">Save Notes</button>
+        </div>
+    </div>
+</form>
+
 <%- include("partials/footer.ejs") %>

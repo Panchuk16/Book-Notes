@@ -1,11 +1,17 @@
 html {
-    min-height: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0px;
-    min-height: 100vh;
-    background-color: rgb(227, 227, 227);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-color: rgb(237, 237, 237);
 }
 
 .center {
@@ -16,6 +22,11 @@ body {
 
 }
 
+.about {
+    width: 100%;
+    justify-items: center;
+}
+
 .home {
     width: 100%;
     display: grid;
@@ -23,27 +34,32 @@ body {
     grid-template-rows: auto;
     gap: 30px;
     justify-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 400px;
-    border: 10px rgb(247, 239, 239) solid;
-    border-radius: 10px;
-    background-color: rgb(244, 229, 229);
-    box-shadow: 10px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-    font-size: 1rem;
-}
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        height: 400px;
+        border: 10px solid hsl(0, 0%, 0%, 0.7) ;
+        border-radius: 25px;
+        background-color: rgb(101, 247, 255);
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 1rem;
+        transition: border-color 0.4s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .card:hover {
+        border-color: transparent;
+    }
+    
 
 #title {
     font-size: 1.5rem;
@@ -75,6 +91,57 @@ body {
     align-items: center;
     justify-content: space-between; /* Ensures footer stays at the bottom */
     flex-grow: 1;
+}
+
+.card-content {
+    flex-grow: 1;
+}
+
+.notes-buttons-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+}
+
+.notes-button {
+    border: 3px solid transparent;
+    min-width: 80px;
+    height: 50px;
+    width: 50%;
+    background-color: #007bff;
+    border-image: linear-gradient(45deg, #007bff, #00d084);
+    border-image-slice: 1;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-image 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.notes-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-image: linear-gradient(-45deg, #007bff, #00d084);
+    border-image-slice: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.edit-button {
+    
+    background-color: #28a745;
+}
+
+.delete-button {
+    background-color: #dc3545;
 }
 
 .container-info {
@@ -130,10 +197,39 @@ body {
 }
 
 footer {
-    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
     height: 30px;
     text-align: center;
     background-color: black;
     color: white;
-    flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+.notes-textarea {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+}
+
+.notes-book-image, .notes-author-image {
+    display: block;
+    margin: 0 auto; 
+}
+
+.container-book-image, .container-author-image {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-book-image, .notes-author-image {
+    width: auto;   
+    height: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
